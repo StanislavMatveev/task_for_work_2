@@ -1,8 +1,10 @@
-# syntax=docker/dockerfile:1
-
 FROM python:3.11-slim
 
 LABEL maintainer="stanar278@gmail.com"
+
+ENV BOT_TOKEN=<bot_token_value> \
+    DB_HOST=mongodb \
+    DB_PORT=27017
 
 WORKDIR /app
 
@@ -12,6 +14,5 @@ RUN python3 -m pip install -r requirements.txt
 
 COPY . .
 
-RUN ./setenv.sh && python3 load_data_in_db.py
-
-CMD [ "python3", "start.py" ]
+CMD python3 migration.py &&\
+    python3 start.py

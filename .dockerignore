@@ -1,9 +1,7 @@
-**__pycache__
+__pycache__
 venv
 .vscode
 
 logs
 ТЗ.docx
-
-.dockerignore
-Dockerfile
+setenv.sh

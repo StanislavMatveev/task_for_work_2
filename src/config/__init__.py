@@ -1,1 +1,1 @@
-from .config import BotConfig
+from .config import BotConfig, DBConfig
